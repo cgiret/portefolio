@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <style>
+        /* Style général */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f9ff;
+            line-height: 1.6;
+        }
+        
+        /* Menu horizontal */
+        nav {
+            background-color: #1e3a8a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #3b82f6;
+        }
+        
+        /* Sections */
+        section {
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 1000px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2 {
+            color: #1e3a8a;
+        }
+        
+        /* Informations personnelles */
+        .personal-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .personal-info img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3b82f6;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #1e3a8a;
+        }
+        
+        /* Parcours scolaire - Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #3b82f6;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #1e3a8a;
+            border: 4px solid #3b82f6;
+        }
+        
+        .timeline-content {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .timeline-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        /* Expériences professionnelles */
+        .experiences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .experience-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.3s;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        /* Compétences systèmes et réseaux */
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+        
+        .skill-name {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .skill-bar {
+            height: 20px;
+            background-color: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: #3b82f6;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-size: 0.8rem;
+            line-height: 20px;
+        }
+        
+        /* Compétences E6 */
+        .e6-download {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .e6-download:hover {
+            background-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#informations">Informations personnelles</a></li>
+            <li><a href="#parcours">Mon parcours scolaire</a></li>
+            <li><a href="#experiences">Mes expériences professionnelles</a></li>
+            <li><a href="#competences-sr">Mes connaissances en système et réseau</a></li>
+            <li><a href="#competences-e6">Mes compétences E6</a></li>
+        </ul>
+    </nav>
+
+    <section id="informations">
+        <h1>Informations personnelles</h1>
+        <div class="personal-info">
+            <img src="photo-profil.jpg" alt="Ma photo de profil">
+            <div>
+                <h2>Prénom NOM</h2>
+                <p>Étudiante dynamique et volontaire en BTS SIO option SISR</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/votreprofil" target="_blank">LinkedIn</a>
+                    <a href="mon-cv.pdf" target="_blank">Télécharger mon CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours">
+        <h1>Mon parcours scolaire</h1>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="lycee-felix-le-dantec.jpg" alt="Lycée Félix Le Dantec" class="timeline-img">
+                    <div>
+                        <h3>Première - NSI, Maths et Physique (2020-2021)</h3>
+                        <p>Découverte de l'informatique théorique et développement de mes premières compétences en programmation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="lycee-felix-le-dantec.jpg" alt="Lycée Félix Le Dantec" class="timeline-img">
+                    <div>
+                        <h3>Terminale - Maths et NSI (2021-2022)</h3>
+                        <p>Approfondissement des concepts informatiques et préparation au supérieur avec un projet de fin d'année stimulant.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="lycee-felix-le-dantec.jpg" alt="Lycée Félix Le Dantec" class="timeline-img">
+                    <div>
+                        <h3>BTS SIO option SISR (2022-2024)</h3>
+                        <p>Spécialisation en systèmes et réseaux avec des projets concrets et des stages professionnalisants.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences">
+        <h1>Mes expériences professionnelles</h1>
+        <div class="experiences-grid">
+            <!-- Projet 1 -->
+            <div class="experience-card">
+                <img src="projet1.jpg" alt="Projet 1">
+                <h3>Projet 1</h3>
+                <p>Description courte du projet et des compétences mobilisées.</p>
+            </div>
+            
+            <!-- Projet 2 -->
+            <div class="experience-card">
+                <img src="projet2.jpg" alt="Projet 2">
+                <h3>Projet 2</h3>
+                <p>Description courte du projet et des compétences mobilisées.</p>
+            </div>
+            
+            <!-- Projet 3 -->
+            <div class="experience-card">
+                <img src="projet3.jpg" alt="Projet 3">
+                <h3>Projet 3</h3>
+                <p>Description courte du projet et des compétences mobilisées.</p>
+            </div>
+            
+            <!-- Projet 4 -->
+            <div class="experience-card">
+                <img src="projet4.jpg" alt="Projet 4">
+                <h3>Projet 4</h3>
+                <p>Description courte du projet et des compétences mobilisées.</p>
+            </div>
+            
+            <!-- Projet 5 -->
+            <div class="experience-card">
+                <img src="projet5.jpg" alt="Projet 5">
+                <h3>Projet 5</h3>
+                <p>Description courte du projet et des compétences mobilisées.</p>
+            </div>
+            
+            <!-- Stage 1 -->
+            <div class="experience-card">
+                <img src="stage1.jpg" alt="Stage 1">
+                <h3>Stage 1</h3>
+                <p>Description de l'entreprise et des missions réalisées.</p>
+            </div>
+            
+            <!-- Stage 2 -->
+            <div class="experience-card">
+                <img src="stage2.jpg" alt="Stage 2">
+                <h3>Stage 2</h3>
+                <p>Description de l'entreprise et des missions réalisées.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences-sr">
+        <h1>Mes connaissances en système et réseau</h1>
+        
+        <div class="skill-item">
+            <div class="skill-name">Administration systèmes (Windows Server, Linux)</div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 80%;">80%</div>
+            </div>
+        </div>
+        
+        <div class="skill-item">
+            <div class="skill-name">Réseaux (TCP/IP, routage, VLAN)</div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 75%;">75%</div>
+            </div>
+        </div>
+        
+        <div class="skill-item">
+            <div class="skill-name">Virtualisation (VMware, Hyper-V)</div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 70%;">70%</div>
+            </div>
+        </div>
+        
+        <div class="skill-item">
+            <div class="skill-name">Sécurité informatique</div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 65%;">65%</div>
+            </div>
+        </div>
+        
+        <div class="skill-item">
+            <div class="skill-name">Scripting (PowerShell, Bash)</div>
+            <div class="skill-bar">
+                <div class="skill-level" style="width: 60%;">60%</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences-e6">
+        <h1>Mes compétences E6</h1>
+        <p>Voici la grille de compétences de l'épreuve E6 du BTS SIO :</p>
+        <a href="grille-e6.xlsx" class="e6-download" download>Télécharger la grille de compétences (Excel)</a>
+    </section>
+
+    <script>
+        // Smooth scrolling pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
